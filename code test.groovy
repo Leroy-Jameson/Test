@@ -11,5 +11,9 @@ Base = Base.toZMin()
 		.toXMin() .toYMin()
 CSG Roof = new Isosceles(20,20,15).toCSG()
 		.toXMin() .toYMin() .movez(20)
-
-return CSG.unionAll([Base, Roof])
+CSG Window = new Cube(	10,// X dimention
+			10,// Y dimention
+			10//  Z dimention
+			).toCSG()// this converts from the geometry to an object we can work with
+		.movex(20).movey(10).movez(10)
+return CSG.unionAll([Base, Roof]).difference(Window)
